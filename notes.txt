@@ -1,0 +1,9 @@
+for small-world_graphs I used:
+n = 128   -> k = 6,  p = 0.08
+n = 256   -> k = 8,  p = 0.06
+n = 512   -> k = 10, p = 0.05
+n = 1024  -> k = 12, p = 0.05
+
+
+for small-world_graphs2 I used:
+n = 128, 256, 512, 1024   -> k = 6,  p = 0.08

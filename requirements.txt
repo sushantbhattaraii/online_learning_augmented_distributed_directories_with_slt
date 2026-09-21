@@ -1,0 +1,7 @@
+brokenaxes
+matplotlib
+pandas
+numpy
+networkx
+openpyxl
+scipy
