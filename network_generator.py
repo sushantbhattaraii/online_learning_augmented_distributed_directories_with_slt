@@ -11,7 +11,7 @@ from draw_graph import see_graph
 
 #  0 ≤ β ≤ 1 0\leq \beta \leq 1 and N ≫ K ≫ ln ⁡ N ≫ 1 {\displaystyle N\gg K\gg \ln N\gg 1}
 
-# num_nodes = 1024
+num_nodes = 1024
 # k = 50
 # num_nodes = 512
 # k = 28
