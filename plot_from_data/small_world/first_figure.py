@@ -20,17 +20,19 @@ stats = {
     'stretch_f256': [],
     'stretch_arrow_f256': [],
     'stretch_parrow_f256': [],
+    'stretch_SPT_f256': []
 }
 cmap = plt.get_cmap('tab20')
 
 # Process each file to compute means
 for n in node_sizes:
-    df = pd.read_excel(f"./../../results/small_world_graphs/1/{file_mapping[n]}")
+    df = pd.read_excel(f"./../../results_spt_implementation/small_world_graphs/first/{file_mapping[n]}")
 
     # Calculate means for fraction 256
     stats['stretch_f256'].append(df[df['fraction'] == 256]['stretch'].mean())
     stats['stretch_arrow_f256'].append(df[df['fraction'] == 256]['stretch_arrow'].mean())
     stats['stretch_parrow_f256'].append(df[df['fraction'] == 256]['stretch_parrow'].mean())
+    stats['stretch_SPT_f256'].append(df[df['fraction'] == 256]['stretch_SPT'].mean())
 
 # Create the plot
 plt.figure(figsize=(2.35, 2.35*5/7), dpi=300)
@@ -41,6 +43,7 @@ plt.yticks(fontsize=8)
 plt.plot([str(x) for x in node_sizes], stats['stretch_arrow_f256'], marker='v', linestyle='-.', label=f'Arrow', color=cmap(2), linewidth=1.1, markersize=4, zorder=2)
 plt.plot([str(x) for x in node_sizes], stats['stretch_parrow_f256'], marker='^', linestyle=':', label=f'PArrow', color=cmap(4), linewidth=1.1, markersize=4, zorder=3)
 plt.plot([str(x) for x in node_sizes], stats['stretch_f256'], marker='.', linestyle='-', label=f'OPArrow', color=cmap(0), linewidth=1.1, markersize=4, zorder=1)
+plt.plot([str(x) for x in node_sizes], stats['stretch_SPT_f256'], marker='s', linestyle='--', label=f'OPArrow SPT', color=cmap(6), linewidth=1.1, markersize=4, zorder=4)
 
 # Formatting the plot
 plt.xlabel('Network Size ($n$)', fontsize=9, labelpad=2)
@@ -58,5 +61,5 @@ plt.xticks([str(x) for x in node_sizes])
 plt.tight_layout(pad=0.05)
 
 # Save and display
-plt.savefig('first_small_world.png')
-# plt.show()
+# plt.savefig('first_small_world.png')
+plt.show()

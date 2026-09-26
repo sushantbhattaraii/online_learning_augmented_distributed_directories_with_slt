@@ -2,13 +2,13 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Filenames for the raw data
-file_5 = "2048nodes_diameter7_cutoff5.0-repetitions50-overlap100.xlsx"
+file_5 = "256nodes_diameter6_cutoff5.0-repetitions50-overlap100.xlsx"
 
 # Load the datasets
-df_5 = pd.read_excel(f"./../../results/internet_graphs/3/{file_5}")
+df_5 = pd.read_excel(f"./../../results_spt_implementation/internet_graphs/third/{file_5}")
 
 # Group by fraction and calculate the mean for both metrics
-summary_5 = df_5.groupby('fraction')[['stretch', 'stretch_arrow', 'stretch_parrow']].mean().reset_index()
+summary_5 = df_5.groupby('fraction')[['stretch', 'stretch_arrow', 'stretch_parrow', 'stretch_SPT']].mean().reset_index()
 
 # Combine data for plotting
 cmap = plt.get_cmap('tab20')
@@ -24,6 +24,7 @@ fractions = summary_5['fraction']
 plt.plot([str(x) for x in fractions], summary_5['stretch_arrow'], marker='v', linestyle='-.', label=f'Arrow', color=cmap(2), linewidth=1.1, markersize=4, zorder=2)
 plt.plot([str(x) for x in fractions], summary_5['stretch_parrow'], marker='^', linestyle=':', label=f'PArrow', color=cmap(4), linewidth=1.1, markersize=4, zorder=3)
 plt.plot([str(x) for x in fractions], summary_5['stretch'], marker='.', linestyle='-', label=f'OPArrow', color=cmap(0), linewidth=1.1, markersize=4, zorder=1)
+plt.plot([str(x) for x in fractions], summary_5['stretch_SPT'], marker='s', linestyle='--', label=f'OPArrow SPT', color=cmap(6), linewidth=1.1, markersize=4, zorder=4)
 
 
 # Formatting the chart

@@ -5,10 +5,10 @@ import matplotlib.pyplot as plt
 file_inf = "512nodes_diameter37_cutoffinf-repetitions50-overlap100.xlsx"
 
 # Load the datasets
-df_inf = pd.read_excel(f"./../../results/random_graphs/3/{file_inf}")
+df_inf = pd.read_excel(f"./../../results_spt_implementation/random_graphs/third/{file_inf}")
 
 # Group by fraction and calculate the mean for both metrics
-summary_inf = df_inf.groupby('fraction')[['stretch', 'stretch_arrow', 'stretch_parrow']].mean().reset_index()
+summary_inf = df_inf.groupby('fraction')[['stretch', 'stretch_arrow', 'stretch_parrow', 'stretch_SPT']].mean().reset_index()
 
 # Combine data for plotting
 cmap = plt.get_cmap('tab20')
@@ -24,6 +24,7 @@ fractions = summary_inf['fraction']
 plt.plot([str(x) for x in fractions], summary_inf['stretch_arrow'], marker='v', linestyle='-.', label=f'Arrow', color=cmap(2), linewidth=1.1, markersize=4, zorder=2)
 plt.plot([str(x) for x in fractions], summary_inf['stretch_parrow'], marker='^', linestyle=':', label=f'PArrow', color=cmap(4), linewidth=1.1, markersize=4, zorder=3)
 plt.plot([str(x) for x in fractions], summary_inf['stretch'], marker='.', linestyle='-', label=f'OPArrow', color=cmap(0), linewidth=1.1, markersize=4, zorder=1)
+plt.plot([str(x) for x in fractions], summary_inf['stretch_SPT'], marker='s', linestyle='--', label=f'OPArrow SPT', color=cmap(6), linewidth=1.1, markersize=4, zorder=4)
 
 
 # Formatting the chart
@@ -42,8 +43,8 @@ plt.xticks([str(x) for x in fractions])
 plt.tight_layout(pad=0.05)
 
 # Save and show
-plt.savefig('third_random.png')
-# plt.show()
+# plt.savefig('third_random.png')
+plt.show()
 
 # Optional: Export summary to CSV
 # combined.to_csv('summary_plot_fractions.csv', index=False)

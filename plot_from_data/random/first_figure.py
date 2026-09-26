@@ -20,12 +20,13 @@ stats = {
     'stretch_f512': [],
     'stretch_arrow_f512': [],
     'stretch_parrow_f512': [],
+    'stretch_SPT_f512': []
 }
 cmap = plt.get_cmap('tab20')
 
 # Process each file to compute means
 for n in node_sizes:
-    df = pd.read_excel(f"./../../results/random_graphs/1/{file_mapping[n]}")
+    df = pd.read_excel(f"./../../results_spt_implementation/random_graphs/first/{file_mapping[n]}")
     
     # Calculate means for fraction 64
     # stats['stretch_f64'].append(df[df['fraction'] == 64]['stretch'].mean())
@@ -35,6 +36,7 @@ for n in node_sizes:
     stats['stretch_f512'].append(df[df['fraction'] == 512]['stretch'].mean())
     stats['stretch_arrow_f512'].append(df[df['fraction'] == 512]['stretch_arrow'].mean())
     stats['stretch_parrow_f512'].append(df[df['fraction'] == 512]['stretch_parrow'].mean())
+    stats['stretch_SPT_f512'].append(df[df['fraction'] == 512]['stretch_SPT'].mean())
 
 # Create the plot
 plt.figure(figsize=(2.35, 2.35*5/7), dpi=300)
@@ -45,8 +47,8 @@ plt.yticks(fontsize=8)
 plt.plot([str(x) for x in node_sizes], stats['stretch_arrow_f512'], marker='v', linestyle='-.', label=f'Arrow', color=cmap(2), linewidth=1.1, markersize=4, zorder=2)
 plt.plot([str(x) for x in node_sizes], stats['stretch_parrow_f512'], marker='^', linestyle=':', label=f'PArrow', color=cmap(4), linewidth=1.1, markersize=4, zorder=3)
 plt.plot([str(x) for x in node_sizes], stats['stretch_f512'], marker='.', linestyle='-', label=f'OPArrow', color=cmap(0), linewidth=1.1, markersize=4, zorder=1)
-
-
+plt.plot([str(x) for x in node_sizes], stats['stretch_SPT_f512'], marker='s', linestyle='--', label=f'OPArrow SPT', color=cmap(6), linewidth=1.1, markersize=4, zorder=4)
+    
 # plt.plot([str(x) for x in node_sizes], stats['stretch_f64'], marker='.', linestyle='-', label=f'Stretch$_{'O'}$$_{'P'}$$_{'A'}$$_{'r'}$$_{'r'}$$_{'o'}$$_{'w'} $(#${'opr'}$ = 64)', color=cmap(2), linewidth=1)
 # plt.plot([str(x) for x in node_sizes], stats['stretch_arrow_f64'], marker='v', linestyle='-.', label=f'Stretch$_{'A'}$$_{'r'}$$_{'r'}$$_{'o'}$$_{'w'} $(#${'opr'}$ = 64)', color=cmap(3), linewidth=1)
 
@@ -67,5 +69,5 @@ plt.xticks([str(x) for x in node_sizes])
 plt.tight_layout(pad=0.05)
 
 # Save and display
-plt.savefig('first_random.png')
-# plt.show()
+# plt.savefig('first_random.png')
+plt.show()

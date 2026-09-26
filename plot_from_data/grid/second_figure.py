@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 # Define categories and the corresponding cutoff strings found in filenames
 categories = ['$0.0$', '$0.1$', '$0.2$', '$0.3$', '$0.4$', '$0.5$']
-cutoffs = ['inf', '10.0', '5.0', '3.3333333333333335', '2.5', '2.0']
+cutoffs = ['inf', '10.0', '5.0', '3.33', '2.5', '2.0']
 
 # Data structures to store results for 4 line graphs
 results = {
@@ -11,6 +11,7 @@ results = {
     'mean_stretch_576': [],
     'mean_stretch_arrow_576': [],
     'mean_stretch_parrow_576': [],
+    'mean_stretch_SPT_576': [],
 }
 cmap = plt.get_cmap('tab20')
 
@@ -20,10 +21,11 @@ for cutoff in cutoffs:
     file_576 = f"576nodes_diameter46_cutoff{cutoff}-repetitions50-overlap100.xlsx"
     
     # Load and aggregate data for 512 nodes
-    df_576 = pd.read_excel(f"./../../results/grid_graphs/2/{file_576}")
+    df_576 = pd.read_excel(f"./../../results_spt_implementation/grid_graphs/second/{file_576}")
     results['mean_stretch_576'].append(df_576['stretch'].mean())
     results['mean_stretch_arrow_576'].append(df_576['stretch_arrow'].mean())
     results['mean_stretch_parrow_576'].append(df_576['stretch_parrow'].mean())
+    results['mean_stretch_SPT_576'].append(df_576['stretch_SPT'].mean())
 
 # Create the plot
 plt.figure(figsize=(2.35, 2.35*5/7), dpi=300)
@@ -34,6 +36,7 @@ plt.yticks(fontsize=8)
 plt.plot([str(x) for x in categories], results['mean_stretch_arrow_576'], marker='v', linestyle='-.', label=f'Arrow', color=cmap(2), linewidth=1.1, markersize=4, zorder=2)
 plt.plot([str(x) for x in categories], results['mean_stretch_parrow_576'], marker='^', linestyle=':', label=f'PArrow', color=cmap(4), linewidth=1.1, markersize=4, zorder=3)
 plt.plot([str(x) for x in categories], results['mean_stretch_576'], marker='.', linestyle='-', label=f'OPArrow', color=cmap(0), linewidth=1.1, markersize=4, zorder=1)
+plt.plot([str(x) for x in categories], results['mean_stretch_SPT_576'], marker='s', linestyle='--', label=f'SPT', color=cmap(6), linewidth=1.1, markersize=4, zorder=4)
 
 # Labels and Formatting
 plt.xlabel('Error($\delta$)', fontsize=9, labelpad=2)
@@ -54,8 +57,8 @@ plt.xticks([str(x) for x in categories])
 plt.tight_layout(pad=0.05)
 
 # Save the plot
-plt.savefig('second_grid.png')
-# plt.show()
+# plt.savefig('second_grid.png')
+plt.show()
 
 # Output the summary to CSV
 # pd.DataFrame(results).to_csv('summary_error_bounds.csv', index=False)
