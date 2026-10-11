@@ -31,8 +31,8 @@ plt.plot([str(x) for x in fractions], summary_2['stretch_SPT'], marker='s', line
 plt.xlabel('Number of Operations', fontsize=9, labelpad=2)
 plt.ylabel('Stretch', fontsize=9, labelpad=2)
 # plt.title('Number of operations vs Mean Stretch for a network size n = 512', fontsize=12)
-plt.legend(loc='upper left', 
-           bbox_to_anchor=(0.0, 0.74),
+plt.legend(loc='upper right', 
+           bbox_to_anchor=(1, 0.74),
            fontsize=8, frameon=True,
                 borderpad=0.25,
                 labelspacing=0.2,

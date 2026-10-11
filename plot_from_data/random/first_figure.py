@@ -47,7 +47,7 @@ plt.yticks(fontsize=8)
 plt.plot([str(x) for x in node_sizes], stats['stretch_arrow_f512'], marker='v', linestyle='-.', label=f'Arrow', color=cmap(2), linewidth=1.1, markersize=4, zorder=2)
 plt.plot([str(x) for x in node_sizes], stats['stretch_parrow_f512'], marker='^', linestyle=':', label=f'PArrow', color=cmap(4), linewidth=1.1, markersize=4, zorder=3)
 plt.plot([str(x) for x in node_sizes], stats['stretch_f512'], marker='.', linestyle='-', label=f'OPArrow', color=cmap(0), linewidth=1.1, markersize=4, zorder=1)
-plt.plot([str(x) for x in node_sizes], stats['stretch_SPT_f512'], marker='s', linestyle='--', label=f'OPArrow SPT', color=cmap(6), linewidth=1.1, markersize=4, zorder=4)
+plt.plot([str(x) for x in node_sizes], stats['stretch_SPT_f512'], marker='s', linestyle='--', label=f'SPT', color=cmap(6), linewidth=1.1, markersize=4, zorder=4)
     
 # plt.plot([str(x) for x in node_sizes], stats['stretch_f64'], marker='.', linestyle='-', label=f'Stretch$_{'O'}$$_{'P'}$$_{'A'}$$_{'r'}$$_{'r'}$$_{'o'}$$_{'w'} $(#${'opr'}$ = 64)', color=cmap(2), linewidth=1)
 # plt.plot([str(x) for x in node_sizes], stats['stretch_arrow_f64'], marker='v', linestyle='-.', label=f'Stretch$_{'A'}$$_{'r'}$$_{'r'}$$_{'o'}$$_{'w'} $(#${'opr'}$ = 64)', color=cmap(3), linewidth=1)
@@ -57,8 +57,8 @@ plt.plot([str(x) for x in node_sizes], stats['stretch_SPT_f512'], marker='s', li
 plt.xlabel('Network Size ($n$)', fontsize=9, labelpad=2)
 plt.ylabel('Stretch', fontsize=9, labelpad=2)
 # plt.title('Network size vs Mean Stretch for err $\leq$ 0.0', fontsize=92)
-plt.legend(loc='upper left', 
-        #    bbox_to_anchor=(0.85, 1.0),
+plt.legend(loc='lower right', 
+           bbox_to_anchor=(1, 0.1),
            fontsize=8, frameon=True,
                 borderpad=0.25,
                 labelspacing=0.2,

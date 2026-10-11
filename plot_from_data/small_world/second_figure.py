@@ -35,7 +35,7 @@ plt.yticks(fontsize=8)
 plt.plot([str(x) for x in categories], results['mean_stretch_arrow_512'], marker='v', linestyle='-.', label=f'Arrow', color=cmap(2), linewidth=1.1, markersize=4, zorder=2)
 plt.plot([str(x) for x in categories], results['mean_stretch_parrow_512'], marker='^', linestyle=':', label=f'PArrow', color=cmap(4), linewidth=1.1, markersize=4, zorder=3)
 plt.plot([str(x) for x in categories], results['mean_stretch_512'], marker='.', linestyle='-', label=f'OPArrow', color=cmap(0), linewidth=1.1, markersize=4, zorder=1)
-plt.plot([str(x) for x in categories], results['mean_stretch_SPT_512'], marker='s', linestyle='--', label=f'OPArrow SPT', color=cmap(6), linewidth=1.1, markersize=4, zorder=4)
+plt.plot([str(x) for x in categories], results['mean_stretch_SPT_512'], marker='s', linestyle='--', label=f'SPT', color=cmap(6), linewidth=1.1, markersize=4, zorder=4)
 
 # Labels and Formatting
 plt.xlabel('Error($\delta$)', fontsize=9, labelpad=2)
@@ -43,7 +43,7 @@ plt.ylabel('Stretch', fontsize=9, labelpad=2)
 # plt.title('Maximum Error Bound vs Mean Stretch for $\# opr = 256$', fontsize=12)
 
 plt.legend(loc='upper right', 
-                bbox_to_anchor=(1.0, 0.8), 
+                bbox_to_anchor=(1.0, 0.6), 
                 fontsize=8, frameon=True,
                 borderpad=0.25,
                 labelspacing=0.2,

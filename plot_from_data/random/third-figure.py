@@ -24,15 +24,15 @@ fractions = summary_inf['fraction']
 plt.plot([str(x) for x in fractions], summary_inf['stretch_arrow'], marker='v', linestyle='-.', label=f'Arrow', color=cmap(2), linewidth=1.1, markersize=4, zorder=2)
 plt.plot([str(x) for x in fractions], summary_inf['stretch_parrow'], marker='^', linestyle=':', label=f'PArrow', color=cmap(4), linewidth=1.1, markersize=4, zorder=3)
 plt.plot([str(x) for x in fractions], summary_inf['stretch'], marker='.', linestyle='-', label=f'OPArrow', color=cmap(0), linewidth=1.1, markersize=4, zorder=1)
-plt.plot([str(x) for x in fractions], summary_inf['stretch_SPT'], marker='s', linestyle='--', label=f'OPArrow SPT', color=cmap(6), linewidth=1.1, markersize=4, zorder=4)
+plt.plot([str(x) for x in fractions], summary_inf['stretch_SPT'], marker='s', linestyle='--', label=f'SPT', color=cmap(6), linewidth=1.1, markersize=4, zorder=4)
 
 
 # Formatting the chart
 plt.xlabel('Number of Operations', fontsize=9, labelpad=2)
 plt.ylabel('Stretch', fontsize=9, labelpad=2)
 # plt.title('Number of operations vs Mean Stretch for a network size n = 512', fontsize=12)
-plt.legend(loc='upper left', 
-           bbox_to_anchor=(0.0, 0.9),
+plt.legend(loc='lower right', 
+           bbox_to_anchor=(1, 0.05),
            fontsize=8, frameon=True,
                 borderpad=0.25,
                 labelspacing=0.2,

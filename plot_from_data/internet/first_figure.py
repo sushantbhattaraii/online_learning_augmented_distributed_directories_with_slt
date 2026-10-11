@@ -48,8 +48,8 @@ plt.plot([str(x) for x in node_sizes], stats['stretch_SPT_f128'], marker='s', li
 plt.xlabel('Network Size ($n$)', fontsize=9, labelpad=2)
 plt.ylabel('Stretch', fontsize=9, labelpad=2)
 # plt.title('Network size vs Mean Stretch for err $\leq$ 0.0', fontsize=92)
-plt.legend(loc='upper right', 
-           bbox_to_anchor=(1.0, 0.54),
+plt.legend(loc='upper left', 
+           bbox_to_anchor=(0.0, 1),
            fontsize=8, frameon=True,
                 borderpad=0.25,
                 labelspacing=0.2,

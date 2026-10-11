@@ -44,7 +44,7 @@ plt.ylabel('Stretch', fontsize=9, labelpad=2)
 # plt.title('Maximum Error Bound vs Mean Stretch for $\# opr = 256$', fontsize=12)
 
 plt.legend(loc='upper left', 
-                bbox_to_anchor=(0.38, 0.72), 
+                bbox_to_anchor=(0.35, 0.72), 
                 fontsize=8, frameon=True,
                 borderpad=0.25,
                 labelspacing=0.2,
