@@ -1,3 +1,5 @@
+import math
+
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -43,8 +45,8 @@ plt.xlabel('Error($\delta$)', fontsize=9, labelpad=2)
 plt.ylabel('Stretch', fontsize=9, labelpad=2)
 # plt.title('Maximum Error Bound vs Mean Stretch for $\# opr = 256$', fontsize=12)
 
-plt.legend(loc='lower right', 
-                bbox_to_anchor=(1.0, 0.05), 
+plt.legend(loc='upper left', 
+                # bbox_to_anchor=(1.0, 0.05), 
                 fontsize=8, frameon=True,
                 borderpad=0.25,
                 labelspacing=0.2,
@@ -54,6 +56,12 @@ plt.legend(loc='lower right',
 
 # plt.grid(True, linestyle='--', alpha=0.7)
 plt.xticks([str(x) for x in categories])
+
+max_y = math.ceil(
+    max(max(values) for key, values in results.items() if key != 'Category')
+)
+plt.ylim(0, max_y+6)
+
 plt.tight_layout(pad=0.05)
 
 # Save the plot

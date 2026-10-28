@@ -1,3 +1,5 @@
+import math
+
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -51,8 +53,8 @@ plt.plot([str(x) for x in node_sizes], stats['stretch_SPT_f256'], marker='s', li
 plt.xlabel('Network Size ($n$)', fontsize=9, labelpad=2)
 plt.ylabel('Stretch', fontsize=9, labelpad=2)
 # plt.title('Network size vs Mean Stretch for err $\leq$ 0.0', fontsize=92)
-plt.legend(loc='upper right', 
-           bbox_to_anchor=(1.0, 0.87),
+plt.legend(loc='upper left', 
+        #    bbox_to_anchor=(1.0, 0.87),
            fontsize=8, frameon=True,
                 borderpad=0.25,
                 labelspacing=0.2,
@@ -60,6 +62,11 @@ plt.legend(loc='upper right',
                 handlelength=2.2)
 # plt.grid(False, which='both', linestyle='--', alpha=0.7)
 plt.xticks([str(x) for x in node_sizes])
+
+max_y = math.ceil(max(max(values) for values in stats.values()))
+plt.ylim(1, max_y+1.5)
+plt.yticks(fontsize=8)
+
 plt.tight_layout(pad=0.05)
 
 # Save and display

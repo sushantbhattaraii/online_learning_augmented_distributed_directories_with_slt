@@ -1,5 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import math
 
 # File mapping for each node count (using the raw CSV versions of the uploaded files)
 file_mapping = {
@@ -41,7 +42,7 @@ for n in node_sizes:
 # Create the plot
 plt.figure(figsize=(2.35, 2.35*5/7), dpi=300)
 plt.xticks(fontsize=8)
-plt.yticks(fontsize=8)
+# plt.yticks(fontsize=8)
 
 # Plotting the 4 line graphs
 plt.plot([str(x) for x in node_sizes], stats['stretch_arrow_f512'], marker='v', linestyle='-.', label=f'Arrow', color=cmap(2), linewidth=1.1, markersize=4, zorder=2)
@@ -57,8 +58,8 @@ plt.plot([str(x) for x in node_sizes], stats['stretch_SPT_f512'], marker='s', li
 plt.xlabel('Network Size ($n$)', fontsize=9, labelpad=2)
 plt.ylabel('Stretch', fontsize=9, labelpad=2)
 # plt.title('Network size vs Mean Stretch for err $\leq$ 0.0', fontsize=92)
-plt.legend(loc='lower right', 
-           bbox_to_anchor=(1, 0.1),
+plt.legend(loc='upper left', 
+        #    bbox_to_anchor=(1, 0.1),
            fontsize=8, frameon=True,
                 borderpad=0.25,
                 labelspacing=0.2,
@@ -66,6 +67,11 @@ plt.legend(loc='lower right',
                 handlelength=2.2)
 # plt.grid(False, which='both', linestyle='--', alpha=0.7)
 plt.xticks([str(x) for x in node_sizes])
+
+max_y = math.ceil(max(max(values) for values in stats.values()))
+plt.ylim(0, max_y+3)
+plt.yticks(fontsize=8)
+
 plt.tight_layout(pad=0.05)
 
 # Save and display

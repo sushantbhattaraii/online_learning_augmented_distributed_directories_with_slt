@@ -33,7 +33,7 @@ plt.ylabel('Stretch', fontsize=9, labelpad=2)
 # plt.title('Number of operations vs Mean Stretch for a network size n = 512', fontsize=12)
 plt.legend(loc='lower right', 
            bbox_to_anchor=(1, 0.05),
-           fontsize=8, frameon=True,
+           fontsize=7, frameon=True,
                 borderpad=0.25,
                 labelspacing=0.2,
                 handletextpad=0.4,

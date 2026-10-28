@@ -1,3 +1,5 @@
+import math
+
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -58,6 +60,11 @@ plt.legend(loc='upper left',
                 handlelength=2.2)
 # plt.grid(False, which='both', linestyle='--', alpha=0.7)
 plt.xticks([str(x) for x in node_sizes])
+
+max_y = math.ceil(max(max(values) for values in stats.values()))
+plt.ylim(0, max_y+1)
+plt.yticks(fontsize=8)
+
 plt.tight_layout(pad=0.05)
 
 # Save and display
